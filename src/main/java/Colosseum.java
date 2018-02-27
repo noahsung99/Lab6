@@ -103,8 +103,50 @@ public class Colosseum {
      *         <p>
      */
     public static Pokemon buildPokemon() {
-        Pokemon returnPokemon = null;
-        return returnPokemon;
+        Pokemon tempPokemon = new Pokemon();
+        System.out.println("Select from the following Pokemon types:" + "\n" + "1 - Electric Pokemon" + "\n" + "2 - Fire Pokemon" + "\n" + "3 - Water Pokemon");
+        int type = myScan.nextInt();
+        if (type > 3 && type < 0) {
+            System.out.println("Sorry, you must pick either 1, 2, or 3.");
+        }
+        if (type == 1) {
+            tempPokemon = new ElectricPokemon();
+        }
+        if (type == 2) {
+            tempPokemon = new FirePokemon();
+        }
+        if (type == 3) {
+            tempPokemon = new WaterPokemon();
+        }
+        boolean nameSet = false;
+        System.out.println("Please name your Pokemon:");
+        String name = myScan.nextLine();
+        tempPokemon.setName(name);
+        nameSet = true;
+        if (nameSet) {
+            System.out.println("How many hit points will it have? (1-50):");
+        }
+        int hp = myScan.nextInt();
+        if (hp > 0 && hp <= 50) {
+            tempPokemon.setHitPoints(hp);
+        } else {
+            System.out.println("Sorry. Hit points must be between 1 and 50");
+        }
+        System.out.println("Enter your attack level (1-49):");
+        int atkLvl = myScan.nextInt();
+        if (atkLvl > 0 && atkLvl < 50) {
+            tempPokemon.setAttackLevel(atkLvl);
+        } else {
+            System.out.println("Sorry. The attack level must be between 1 and 49");
+        }
+        System.out.println("Enter your defense level (1-" + (50 - tempPokemon.getAttackLevel()) + "):");
+        int defLvl = myScan.nextInt();
+        if (defLvl > 0 && defLvl <= 50 - tempPokemon.getAttackLevel()) {
+            tempPokemon.setDefenseLevel(defLvl);
+        } else {
+            System.out.println("Sorry. The defense level must be between 1 and " + (50 - tempPokemon.getAttackLevel()));
+        }
+        return tempPokemon;
     }
 
     /**

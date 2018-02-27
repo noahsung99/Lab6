@@ -105,7 +105,7 @@ public class Pokemon {
      * @param attackLvl the attack level to set our Pokemon's attack level to
      */
     public void setAttackLevel(final int attackLvl) {
-        this.attackLevel = attackLvl;
+            this.attackLevel = attackLvl;
     }
     /**
      * Get the defense level of the pokemon.
@@ -133,7 +133,7 @@ public class Pokemon {
      * @param hp the hit points to set our Pokemon's hit points to
      */
     public void setHitPoints(final int hp) {
-        this.hitPoints = hp;
+            this.hitPoints = hp;
     }
 
     /**
